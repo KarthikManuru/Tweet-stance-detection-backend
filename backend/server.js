@@ -5,7 +5,12 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: "*",  // Allows any domain (Not recommended for production)
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+}));
+
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
